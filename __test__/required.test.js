@@ -162,7 +162,7 @@ test('task-09 hasBoolean, isStringArray', async (t) => {
 });
 
 test('task-10 return2007', () => {
-    assert.strictEqual(return2007('Всех Люблю!'), 'ФсЕх ЛЮбЛю!:*');
+    assert.strictEqual(return2007('Всех Люблю!'), 'ФсЕх лЮбЛю!:*');
     assert.strictEqual(return2007('Верни мой две тысячи седьмой!'), 'ФеРнИ МоЙ ДфЕ ТыСяЧи сЕдЬмОй!:*');
 });
 
