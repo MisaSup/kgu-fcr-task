@@ -606,4 +606,5 @@ export default (env, argv) => {
 
 - [webpack get started](https://webpack.js.org/guides/getting-started/)
 - [webpack docs](https://webpack.js.org/)
+- [Видео: настройка webpack](https://www.youtube.com/watch?v=E6oaEO2FHNI)
 - [Презентации курса](https://drive.google.com/drive/folders/1dQFBPJ4BL9fk2z7Z02mZG_nGh5jGCPN0?usp=sharing)
