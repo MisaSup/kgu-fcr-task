@@ -2,10 +2,32 @@
   box-sizing: border-box;
 }
 
+
+:root {
+  --bg: #eef1f7;
+  --surface: #ffffff;
+  --text: #1b1f2a;
+  --muted: #5b6473;
+  --accent: #4f6ef7;
+  --border: #d7dce6;
+  --shadow: 0 12px 32px rgba(20, 30, 60, 0.12);
+}
+
+
+#theme:checked ~ .page {
+  --bg: #0f1219;
+  --surface: #171b25;
+  --text: #eef1f7;
+  --muted: #9aa3b2;
+  --accent: #7c93ff;
+  --border: #2a3040;
+  --shadow: 0 12px 32px rgba(0, 0, 0, 0.5);
+}
+
 body {
   margin: 0;
   font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-  background: #eef1f7;
+  background: var(--bg);
 }
 
 .theme-toggle {
@@ -22,8 +44,8 @@ body {
   flex-direction: column;
   align-items: center;
   padding: 48px 20px 64px;
-  background: #eef1f7;
-  color: #1b1f2a;
+  background: var(--bg);
+  color: var(--text);
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
@@ -34,7 +56,7 @@ body {
   height: 32px;
   margin-bottom: 40px;
   border-radius: 999px;
-  background: #d7dce6;
+  background: var(--border);
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
@@ -47,13 +69,13 @@ body {
   width: 26px;
   height: 26px;
   border-radius: 50%;
-  background: #ffffff;
+  background: var(--surface);
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
   transition: transform 0.3s ease;
 }
 
 #theme:checked ~ .page .theme-switch {
-  background: #4f6ef7;
+  background: var(--accent);
 }
 
 #theme:checked ~ .page .theme-switch::before {
@@ -64,10 +86,10 @@ body {
   width: 100%;
   max-width: 420px;
   padding: 32px;
-  border: 1px solid #d7dce6;
+  border: 1px solid var(--border);
   border-radius: 18px;
-  background: #ffffff;
-  box-shadow: 0 12px 32px rgba(20, 30, 60, 0.12);
+  background: var(--surface);
+  box-shadow: var(--shadow);
   transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
@@ -78,7 +100,7 @@ h1 {
 
 .lead {
   margin: 0 0 24px;
-  color: #5b6473;
+  color: var(--muted);
   line-height: 1.5;
 }
 
@@ -109,9 +131,9 @@ h1 {
   flex: none;
   width: 24px;
   height: 24px;
-  border: 2px solid #d7dce6;
+  border: 2px solid var(--border);
   border-radius: 6px;
-  background: #ffffff;
+  background: var(--surface);
   transition: background-color 0.2s ease, border-color 0.2s ease,
     outline-color 0.2s ease;
 }
@@ -130,8 +152,8 @@ h1 {
 }
 
 .custom-checkbox input:checked + .checkmark {
-  background: #4f6ef7;
-  border-color: #4f6ef7;
+  background: var(--accent);
+  border-color: var(--accent);
 }
 
 .custom-checkbox input:checked + .checkmark::after {
@@ -139,6 +161,6 @@ h1 {
 }
 
 .custom-checkbox input:focus-visible + .checkmark {
-  outline: 3px solid #4f6ef7;
+  outline: 3px solid var(--accent);
   outline-offset: 3px;
 }
