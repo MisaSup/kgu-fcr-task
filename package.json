@@ -1,0 +1,9 @@
+{
+  "scripts": {
+    "build": "esbuild ./src/index.js --bundle --minify --outfile=public/script.js",
+    "dev": "esbuild ./src/index.js --bundle --watch --outfile=public/script.js"
+  },
+  "devDependencies": {
+    "esbuild": "0.28.2"
+  }
+}
