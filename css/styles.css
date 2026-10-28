@@ -31,35 +31,7 @@ body {
   color: var(--text);
   background: #0c0e13;
   line-height: 1.5;
-  display: flex;
-  justify-content: center;
   min-height: 100vh;
-}
-
-/* Mobile device frame: 430 x 932 */
-.phone {
-  width: 100%;
-  max-width: 430px;
-  min-height: 100vh;
-  background: var(--surface-2);
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
-}
-
-@media (min-width: 500px) {
-  body {
-    padding: 24px 0;
-    align-items: flex-start;
-  }
-
-  .phone {
-    min-height: 932px;
-    max-height: 932px;
-    border-radius: 28px;
-    box-shadow: var(--shadow);
-    overflow: hidden;
-  }
 }
 
 /* Header */
