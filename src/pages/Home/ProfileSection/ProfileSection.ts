@@ -1,5 +1,6 @@
+import type { Component } from "../../../shared/lib/components/types.js";
 
-const ProfileSection = () => {
+const ProfileSection: Component = () => {
     return `
           <section class="hero" aria-labelledby="hero-title">
         <img class="hero__img" src="http://172.30.82.99:3000/assets/hero.svg" alt="Болид Формулы-1 на трассе">
@@ -11,7 +12,7 @@ const ProfileSection = () => {
           </div>
         </div>
       </section>
-    `
-}
+    `;
+};
 
 export default ProfileSection;

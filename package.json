@@ -1,9 +1,11 @@
 {
   "scripts": {
-    "build": "esbuild ./src/index.js --bundle --minify --outfile=public/script.js",
-    "dev": "esbuild ./src/index.js --bundle --watch --outfile=public/script.js"
+    "build": "esbuild ./src/index.ts --bundle --minify --outfile=public/script.js",
+    "dev": "esbuild ./src/index.ts --bundle --watch --outfile=public/script.js",
+    "typecheck": "tsc --noEmit"
   },
   "devDependencies": {
-    "esbuild": "0.28.2"
+    "esbuild": "0.28.2",
+    "typescript": "^7.0.2"
   }
 }

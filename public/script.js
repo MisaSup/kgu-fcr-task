@@ -1,44 +1,20 @@
-(() => {
-  // src/widgets/Header/Header.js
-  var Header = () => {
-    return `
+"use strict";(()=>{var d=()=>`
     <header class="site-header">
       <a class="brand" href="/" aria-label="Pit Lane \u2014 \u043D\u0430 \u0433\u043B\u0430\u0432\u043D\u0443\u044E">
         <img class="brand__logo" src="http://172.30.82.99:3000/assets/logo.svg" alt="\u041B\u043E\u0433\u043E\u0442\u0438\u043F Pit Lane F1 Fan Club">
       </a>
       <span class="header__badge">F1 Fan Club</span>
     </header>
-    `;
-  };
-  var Header_default = Header;
-
-  // src/widgets/Navigation/Navigation.js
-  var Navigation = () => {
-    return `
+    `,o=d;var f=()=>`
     <nav class="site-nav" aria-label="\u041E\u0441\u043D\u043E\u0432\u043D\u0430\u044F \u043D\u0430\u0432\u0438\u0433\u0430\u0446\u0438\u044F">
       <a class="site-nav__link" href="/" aria-current="page">\u0413\u043B\u0430\u0432\u043D\u0430\u044F</a>
       <a class="site-nav__link" href="/public/profile">\u041F\u0440\u043E\u0444\u0438\u043B\u044C</a>
     </nav>
-    `;
-  };
-  var Navigation_default = Navigation;
-
-  // src/widgets/MainContent/MainContent.js
-  var MainContent = ({ children }) => {
-    if (!Array.isArray(children)) {
-      throw new Error("MainContent must be an array of children");
-    }
-    return `
+    `,a=f;var h=({children:e})=>{if(!Array.isArray(e))throw new Error("MainContent must be an array of children");return`
         <main class="content">
-            ${children.map((child) => child()).join("")}
+            ${e.map(t=>t({})).join("")}
         </main>
-    `;
-  };
-  var MainContent_default = MainContent;
-
-  // src/widgets/Footer/Footer.js
-  var Footer = () => {
-    return `
+    `},r=h;var u=()=>`
     <footer class="site-footer">
       <div class="site-footer__top">
         <img class="site-footer__logo" src="http://172.30.82.99:3000/assets/logo.svg" alt="\u041B\u043E\u0433\u043E\u0442\u0438\u043F Pit Lane F1 Fan Club">
@@ -54,13 +30,7 @@
       </div>
       <p class="site-footer__copy">&copy; 2026 Pit Lane F1 Fan Club</p>
     </footer>
-    `;
-  };
-  var Footer_default = Footer;
-
-  // src/pages/Home/ProfileSection/ProfileSection.js
-  var ProfileSection = () => {
-    return `
+    `,n=u;var C=()=>`
           <section class="hero" aria-labelledby="hero-title">
         <img class="hero__img" src="http://172.30.82.99:3000/assets/hero.svg" alt="\u0411\u043E\u043B\u0438\u0434 \u0424\u043E\u0440\u043C\u0443\u043B\u044B-1 \u043D\u0430 \u0442\u0440\u0430\u0441\u0441\u0435">
         <div class="hero__body">
@@ -71,76 +41,23 @@
           </div>
         </div>
       </section>
-    `;
-  };
-  var ProfileSection_default = ProfileSection;
-
-  // src/pages/Home/TeamsSection/TeamChip/TeamChip.js
-  var TeamChip = ({ teamName, color }) => {
-    return `
-          <div class="team-chip team-chip--${color}" role="listitem">
+    `,s=C;var b=({teamName:e,color:t})=>`
+          <div class="team-chip team-chip--${t}" role="listitem">
             <span class="team-chip__stripe" aria-hidden="true"></span>
-            ${teamName}
+            ${e}
           </div>
-    `;
-  };
-  var TeamChip_default = TeamChip;
-
-  // src/pages/Home/TeamsSection/TeamGrid/TeamGrid.js
-  var teams = [
-    { teamName: "Ferrari", color: "red" },
-    { teamName: "Red Bull", color: "orange" },
-    { teamName: "Mercedes", color: "silver" },
-    { teamName: "McLaren", color: "papaya" },
-    { teamName: "Aston Martin", color: "green" },
-    { teamName: "Alpine", color: "blue" }
-  ];
-  var TeamsGrid = () => {
-    return `
+    `,i=b;var y=[{teamName:"Ferrari",color:"red"},{teamName:"Red Bull",color:"orange"},{teamName:"Mercedes",color:"silver"},{teamName:"McLaren",color:"papaya"},{teamName:"Aston Martin",color:"green"},{teamName:"Alpine",color:"blue"}],_=()=>`
         <div class="team-grid" role="list">
-          ${teams.map((chip) => TeamChip_default(chip)).join("")}
+          ${y.map(e=>i(e)).join("")}
         </div>
-    `;
-  };
-  var TeamGrid_default = TeamsGrid;
-
-  // src/pages/Home/TeamsSection/TeamsSection.js
-  var TeamsSection = () => {
-    return `
+    `,p=_;var v=()=>`
       <section aria-labelledby="teams-title">
         <h2 class="section-title" id="teams-title">\u041A\u043E\u043C\u0430\u043D\u0434\u044B \u0441\u0435\u0437\u043E\u043D\u0430</h2>
-        ${TeamGrid_default()}
+        ${p({})}
       </section>
-    `;
-  };
-  var TeamsSection_default = TeamsSection;
-
-  // src/pages/Home/HomePage.js
-  var HomePage = () => {
-    return `
-        ${Header_default()}
-        ${Navigation_default()}
-        ${MainContent_default({
-      children: [
-        ProfileSection_default,
-        TeamsSection_default
-      ]
-    })}
-        ${Footer_default()}
-    `;
-  };
-  var HomePage_default = HomePage;
-
-  // src/App.js
-  var App = () => {
-    return `${HomePage_default()}`;
-  };
-  var App_default = App;
-
-  // src/index.js
-  var render = () => {
-    const appRoot = document.querySelector("#app");
-    appRoot.innerHTML = App_default();
-  };
-  window.onload = render;
-})();
+    `,m=v;var g=()=>`
+        ${o({})}
+        ${a({})}
+        ${r({children:[s,m]})}
+        ${n({})}
+    `,l=g;var x=()=>`${l({})}`,c=x;var P=()=>{let e=document.querySelector("#app");if(!e)throw new Error("Root element #app not found");e.innerHTML=c({})};window.onload=P;})();

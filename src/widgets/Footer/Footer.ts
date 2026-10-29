@@ -1,5 +1,6 @@
+import type { Component } from '../../shared/lib/components/types.js';
 
-const Footer = () => {
+const Footer: Component = () => {
     return `
     <footer class="site-footer">
       <div class="site-footer__top">
@@ -16,7 +17,7 @@ const Footer = () => {
       </div>
       <p class="site-footer__copy">&copy; 2026 Pit Lane F1 Fan Club</p>
     </footer>
-    `
-}
+    `;
+};
 
 export default Footer;

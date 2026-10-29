@@ -1,4 +1,6 @@
-const Header = () => {
+import type { Component } from '../../shared/lib/components/types.js';
+
+const Header: Component = () => {
     return `
     <header class="site-header">
       <a class="brand" href="/" aria-label="Pit Lane — на главную">
@@ -6,7 +8,7 @@ const Header = () => {
       </a>
       <span class="header__badge">F1 Fan Club</span>
     </header>
-    `
-}
+    `;
+};
 
 export default Header
