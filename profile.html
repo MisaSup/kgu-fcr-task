@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RE Club - Профиль</title>
+  <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/2920/2920277.png" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <a href="index.html" class="logo">
+      <img src="https://cdn-icons-png.flaticon.com/512/2920/2920277.png" alt="RE Club logo" />
+      RE Club
+    </a>
+    <nav>
+      <a href="index.html">Главная</a>
+      <a href="form.html">Заявка</a>
+      <a href="profile.html" class="active">Профиль</a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="profile-header">
+      <img src="https://i.pravatar.cc/150?img=33" alt="User avatar" />
+      <h1>0xDEAD</h1>
+      <p>Member since 2025</p>
+    </div>
+
+    <div class="card profile-info">
+      <h2>Информация</h2>
+      <p><strong>Email:</strong> 0xdead@re-club.dev</p>
+      <p><strong>Возраст:</strong> 24</p>
+      <p><strong>Опыт:</strong> 4 года</p>
+      <p><strong>Уровень:</strong> Intermediate</p>
+      <p><strong>Интерес:</strong> Binary Exploitation</p>
+      <p><strong>О себе:</strong> Увлекаюсь реверсом Windows-бинарников и участием в CTF.</p>
+    </div>
+
+    <div class="card">
+      <h2>Смена пароля</h2>
+      <form>
+        <label for="old-pass">Текущий пароль</label>
+        <input type="password" id="old-pass" name="old-pass" />
+
+        <label for="new-pass">Новый пароль</label>
+        <input type="password" id="new-pass" name="new-pass" />
+
+        <label for="confirm-pass">Повторите новый пароль</label>
+        <input type="password" id="confirm-pass" name="confirm-pass" />
+
+        <div class="buttons">
+          <button type="submit">Изменить пароль</button>
+        </div>
+      </form>
+    </div>
+  </main>
+
+  <footer>
+    <p>© 2026 Reverse Engineering Club</p>
+    <p>
+      <a href="index.html">Главная</a>
+      <a href="form.html">Заявка</a>
+      <a href="profile.html">Профиль</a>
+    </p>
+    <p>contact@re-club.dev</p>
+  </footer>
+</body>
+</html>

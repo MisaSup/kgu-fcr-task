@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RE Club - Заявка</title>
+  <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/2920/2920277.png" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <a href="index.html" class="logo">
+      <img src="https://cdn-icons-png.flaticon.com/512/2920/2920277.png" alt="RE Club logo" />
+      RE Club
+    </a>
+    <nav>
+      <a href="index.html">Главная</a>
+      <a href="form.html" class="active">Заявка</a>
+      <a href="profile.html">Профиль</a>
+    </nav>
+  </header>
+
+  <main>
+    <h1>Заявка в клуб</h1>
+    <p>Заполни все поля. Чем подробнее - тем лучше.</p>
+
+    <form class="card">
+      <label for="name">Имя / Никнейм</label>
+      <input type="text" id="name" name="name" required placeholder="например, 0xDEAD" />
+
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" required placeholder="you@example.com" />
+
+      <label for="password">Пароль</label>
+      <input type="password" id="password" name="password" required />
+
+      <label for="age">Возраст</label>
+      <input type="number" id="age" name="age" min="14" max="99" />
+
+      <label for="exp">Лет опыта в RE</label>
+      <input type="number" id="exp" name="exp" min="0" max="30" />
+
+      <label for="birthday">Дата рождения</label>
+      <input type="date" id="birthday" name="birthday" />
+
+      <label for="level">Уровень</label>
+      <select id="level" name="level">
+        <option value="">Выбери уровень</option>
+        <option value="beginner">Новичок</option>
+        <option value="intermediate">Средний</option>
+        <option value="advanced">Продвинутый</option>
+        <option value="expert">Эксперт</option>
+      </select>
+
+      
+      <div class="radio-group">
+        <label>Основной интерес:</label>
+        <label><input type="radio" name="interest" value="malware" /> Malware Analysis</label>
+        <label><input type="radio" name="interest" value="binary" /> Binary Exploitation</label>
+        <label><input type="radio" name="interest" value="firmware" /> Firmware / IoT</label>
+      </div>
+
+
+      <div class="checkbox-group">
+        <label><input type="checkbox" name="agree" required /> Согласен на обработку данных</label>
+        <label><input type="checkbox" name="newsletter" /> Хочу получать рассылку</label>
+      </div>
+
+      <label for="about">Немного о себе и опыте</label>
+      <textarea id="about" name="about" rows="4" placeholder="Расскажи, что уже реверсил..."></textarea>
+
+      <div class="buttons">
+        <button type="submit">Отправить заявку</button>
+        <button type="reset">Сбросить</button>
+      </div>
+    </form>
+  </main>
+
+  <footer>
+    <p>© 2026 Reverse Engineering Club</p>
+    <p>
+      <a href="index.html">Главная</a>
+      <a href="form.html">Заявка</a>
+      <a href="profile.html">Профиль</a>
+    </p>
+    <p>contact@re-club.dev</p>
+  </footer>
+</body>
+</html>
