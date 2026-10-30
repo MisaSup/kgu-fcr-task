@@ -1,9 +1,9 @@
 import "../public/styles.css";
 import App from "./App.js";
 
-const setupIpViewer = (root: HTMLElement): void => {
-  const button = root.querySelector<HTMLButtonElement>("[data-ip-show]");
-  const result = root.querySelector<HTMLElement>("[data-ip-result]");
+const setupIpViewer = (root) => {
+  const button = root.querySelector("[data-ip-show]");
+  const result = root.querySelector("[data-ip-result]");
 
   if (!button || !result) {
     return;
@@ -15,8 +15,8 @@ const setupIpViewer = (root: HTMLElement): void => {
   });
 };
 
-const render = (): void => {
-  const appRoot = document.querySelector<HTMLDivElement>("#app");
+const render = () => {
+  const appRoot = document.querySelector("#app");
 
   if (!appRoot) {
     return;

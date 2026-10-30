@@ -1,4 +1,4 @@
-const IpViewer = (): string => {
+const IpViewer = () => {
   return `
     <section class="ip-viewer">
       <div class="ip-viewer__result" data-ip-result>
