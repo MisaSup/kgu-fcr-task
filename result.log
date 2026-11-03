@@ -1,187 +1,187 @@
-TAP version 13
+﻿TAP version 13
 # Subtest: example insertionSort
 ok 1 - example insertionSort
   ---
-  duration_ms: 3.5607
+  duration_ms: 3.8945
   type: 'test'
   ...
 # Subtest: example insertionSort does not mutate the source array
 ok 2 - example insertionSort does not mutate the source array
   ---
-  duration_ms: 0.3565
+  duration_ms: 0.6903
   type: 'test'
   ...
 # Subtest: task-optional-00 factorial
 ok 3 - task-optional-00 factorial
   ---
-  duration_ms: 1.4015
+  duration_ms: 1.502
   type: 'test'
   ...
 # Subtest: task-optional-01 fibonacci
 ok 4 - task-optional-01 fibonacci
   ---
-  duration_ms: 1.6201
+  duration_ms: 1.2063
   type: 'test'
   ...
 # Subtest: task-optional-02 isFalsy
 ok 5 - task-optional-02 isFalsy
   ---
-  duration_ms: 0.5534
+  duration_ms: 0.3785
   type: 'test'
   ...
 # Subtest: task-optional-03 palindrome
 ok 6 - task-optional-03 palindrome
   ---
-  duration_ms: 0.3436
+  duration_ms: 0.3047
   type: 'test'
   ...
 # Subtest: task-optional-04 keepRepeated
 ok 7 - task-optional-04 keepRepeated
   ---
-  duration_ms: 0.5998
+  duration_ms: 0.5854
   type: 'test'
   ...
 # Subtest: task-optional-05 uniqueChars
 ok 8 - task-optional-05 uniqueChars
   ---
-  duration_ms: 0.4376
+  duration_ms: 0.4128
   type: 'test'
   ...
 # Hello, World!
 # Subtest: task-00 helloWorld
 ok 9 - task-00 helloWorld
   ---
-  duration_ms: 2.5215
+  duration_ms: 2.791
   type: 'test'
   ...
 # Subtest: task-01 getString
 ok 10 - task-01 getString
   ---
-  duration_ms: 0.3229
+  duration_ms: 0.4625
   type: 'test'
   ...
 # Subtest: task-02 getLength, getFirst, getLast, pushElement, popElement
     # Subtest: getLength
     ok 1 - getLength
       ---
-      duration_ms: 0.2717
+      duration_ms: 0.4012
       type: 'test'
       ...
     # Subtest: getFirst
     ok 2 - getFirst
       ---
-      duration_ms: 0.251
+      duration_ms: 0.2962
       type: 'test'
       ...
     # Subtest: getLast
     ok 3 - getLast
       ---
-      duration_ms: 0.3067
+      duration_ms: 0.3563
       type: 'test'
       ...
     # Subtest: pushElement
     ok 4 - pushElement
       ---
-      duration_ms: 1.3198
+      duration_ms: 1.313
       type: 'test'
       ...
     # Subtest: popElement
     ok 5 - popElement
       ---
-      duration_ms: 0.2295
+      duration_ms: 0.2428
       type: 'test'
       ...
     1..5
 ok 11 - task-02 getLength, getFirst, getLast, pushElement, popElement
   ---
-  duration_ms: 3.8646
+  duration_ms: 4.6628
   type: 'test'
   ...
 # Subtest: task-03 getAnimalDescription
 ok 12 - task-03 getAnimalDescription
   ---
-  duration_ms: 0.3292
+  duration_ms: 0.5251
   type: 'test'
   ...
 # Subtest: task-04 getObjKeys, getObjValues
     # Subtest: getObjKeys
     ok 1 - getObjKeys
       ---
-      duration_ms: 0.3483
+      duration_ms: 0.4421
       type: 'test'
       ...
     # Subtest: getObjValues
     ok 2 - getObjValues
       ---
-      duration_ms: 0.1902
+      duration_ms: 0.446
       type: 'test'
       ...
     1..2
 ok 13 - task-04 getObjKeys, getObjValues
   ---
-  duration_ms: 1.1147
+  duration_ms: 1.8763
   type: 'test'
   ...
 # Subtest: task-05 patchObj
 ok 14 - task-05 patchObj
   ---
-  duration_ms: 0.4025
+  duration_ms: 0.7612
   type: 'test'
   ...
 # Subtest: task-06 deleteItem
     # Subtest: delete non existing item
     ok 1 - delete non existing item
       ---
-      duration_ms: 0.2324
+      duration_ms: 0.4997
       type: 'test'
       ...
     # Subtest: delete existing item
     ok 2 - delete existing item
       ---
-      duration_ms: 0.3907
+      duration_ms: 1.6124
       type: 'test'
       ...
     1..2
 ok 15 - task-06 deleteItem
   ---
-  duration_ms: 2.0476
+  duration_ms: 3.0136
   type: 'test'
   ...
 # Subtest: task-07 multiplyByTwo
 ok 16 - task-07 multiplyByTwo
   ---
-  duration_ms: 0.2555
+  duration_ms: 0.5024
   type: 'test'
   ...
 # Subtest: task-08 getAssessments
 ok 17 - task-08 getAssessments
   ---
-  duration_ms: 0.3091
+  duration_ms: 0.4797
   type: 'test'
   ...
 # Subtest: task-09 hasBoolean, isStringArray
     # Subtest: hasBoolean
     ok 1 - hasBoolean
       ---
-      duration_ms: 0.2545
+      duration_ms: 0.3352
       type: 'test'
       ...
     # Subtest: isStringArray
     ok 2 - isStringArray
       ---
-      duration_ms: 0.1683
+      duration_ms: 0.2705
       type: 'test'
       ...
     1..2
 ok 18 - task-09 hasBoolean, isStringArray
   ---
-  duration_ms: 1.0163
+  duration_ms: 1.2485
   type: 'test'
   ...
 # Subtest: task-10 return2007
 ok 19 - task-10 return2007
   ---
-  duration_ms: 0.2336
+  duration_ms: 0.3914
   type: 'test'
   ...
 1..19
@@ -192,4 +192,4 @@ ok 19 - task-10 return2007
 # cancelled 0
 # skipped 0
 # todo 0
-# duration_ms 176.0346
+# duration_ms 199.6751
