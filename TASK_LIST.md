@@ -21,6 +21,9 @@
 7. **`task/RE-01`** — Перевести приложение «Мой IP» (из CAT-01) на React: JSX-компоненты, рендер через `createRoot`, CSS-модули и сборка через webpack.
 *Технологии:* React, TypeScript, JSX, CSS-модули, webpack, npm
 
+8. **`task/RE-02`** — Знакомство с Vite (`create vite`, шаблон `react-ts`) и официальный туториал React «Крестики-нолики»: компоненты, пропсы, `useState`, история ходов.
+*Технологии:* Vite, React, TypeScript, JSX, `useState`, npm
+
 > Ветки `*-demo` — это готовые шаблоны-заготовки для соответствующих заданий.
 
 > При сдаче задания в описании Pull Request укажите: `name: [NAME] [SURNAME]; group: [GROUP]`. Подробнее — в разделе **Pull Request** файла [README.md](README.md).
