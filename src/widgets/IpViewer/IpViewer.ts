@@ -1,4 +1,7 @@
-const IpViewer = () => {
+import "./IpViewer.css";
+import type { Component } from "../../shared/lib/components/types";
+
+const IpViewer: Component = () => {
   return `
     <section class="ip-viewer">
       <div class="ip-viewer__result" data-ip-result>
