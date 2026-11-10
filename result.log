@@ -1,0 +1,4 @@
+
+> kgu-fcr-task-ts@1.0.0 typecheck
+> tsc --noEmit
+
