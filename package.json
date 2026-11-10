@@ -4,10 +4,12 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "esbuild src/index.js --bundle --outfile=dist/index.js --format=esm",
-    "dev": "esbuild src/index.js --bundle --outfile=dist/index.js --format=esm --watch"
+    "build": "esbuild src/index.ts --bundle --outfile=dist/index.js --format=esm",
+    "dev": "esbuild src/index.ts --bundle --outfile=dist/index.js --format=esm --watch",
+    "typecheck": "tsc --noEmit"
   },
   "devDependencies": {
-    "esbuild": "^0.28.2"
+    "esbuild": "^0.28.2",
+    "typescript": "^7.0.2"
   }
 }
