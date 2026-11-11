@@ -1,0 +1,38 @@
+:global(:root) {
+  --bg: #0f172a;
+  --card: #1e293b;
+  --accent: #f97316;
+  --text: #f8fafc;
+}
+
+:global(*) {
+  box-sizing: border-box;
+}
+
+:global(body) {
+  margin: 0;
+  min-height: 100dvh;
+  background: var(--bg);
+  color: var(--text);
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+:global(#app) {
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+}
+
+.app {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 16px;
+}
+
+.title {
+  margin: 0;
+  font-size: 1.25rem;
+  text-align: center;
+}
