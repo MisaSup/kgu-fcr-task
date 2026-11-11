@@ -1,5 +1,4 @@
 :root {
-  /* Светлая тема (по умолчанию) */
   --bg: #eef1f7;
   --surface: #ffffff;
   --text: #1b1f2a;
@@ -9,7 +8,6 @@
   --shadow: 0 12px 32px rgba(20, 30, 60, 0.12);
 }
 
-/* Тёмная тема: активна, когда чекбокс #theme отмечен */
 #theme:checked ~ .page {
   --bg: #0f1219;
   --surface: #171b25;
@@ -26,7 +24,12 @@
 
 body {
   margin: 0;
-  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    "Segoe UI",
+    Roboto,
+    sans-serif;
   background: var(--bg);
 }
 
@@ -46,7 +49,9 @@ body {
   padding: 48px 20px 64px;
   background: var(--bg);
   color: var(--text);
-  transition: background-color 0.3s ease, color 0.3s ease;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
 }
 
 .theme-switch {
@@ -90,7 +95,9 @@ body {
   border-radius: 18px;
   background: var(--surface);
   box-shadow: var(--shadow);
-  transition: background-color 0.3s ease, border-color 0.3s ease;
+  transition:
+    background-color 0.3s ease,
+    border-color 0.3s ease;
 }
 
 h1 {
@@ -134,7 +141,9 @@ h1 {
   border: 2px solid var(--border);
   border-radius: 6px;
   background: var(--surface);
-  transition: background-color 0.2s ease, border-color 0.2s ease,
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
     outline-color 0.2s ease;
 }
 
