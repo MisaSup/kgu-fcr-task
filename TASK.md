@@ -10,14 +10,20 @@
 
 2. Установить зависимости и запустить dev-сервер (тоже описано в гайде).
 
-3. Очистить шаблон от стартового кода Vite: убрать логотипы, кнопку-счётчик, лишние стили и компонент-пример, оставив чистый каркас приложения.
+3. Очистить шаблон от стартового кода Vite: убрать логотипы, кнопку-счётчик, лишние стили и компонент-пример, оставив чистый каркас приложения. Шаблонные `src/App.css` и `src/index.css` можно удалить — стили игры мы возьмём готовые (см. шаг 4).
 
 4. Пройти официальный туториал React — [**«Tutorial: Tic-Tac-Toe»**](https://react.dev/learn/tutorial-tic-tac-toe) — и собрать игру «Крестики-нолики». Идём по шагам статьи: доска, пропсы, `useState`, ход по очереди, определение победителя и «путешествие во времени» (история ходов).
 
    > Туториал написан на JavaScript для CodeSandbox. Мы используем **TypeScript + Vite**, поэтому:
    > - файлы — `.tsx` (`App.tsx`), точка входа — `src/main.tsx`;
-   > - стили из туториала (`styles.css`) подключаем в `src/`;
+   > - готовый CSS игры в CodeSandbox искать не нужно — он лежит в этом репозитории: [`assets/tic-tac-toe/styles.css`](assets/tic-tac-toe/styles.css). Скопируйте его в проект как `src/styles.css`;
    > - по возможности типизируем пропсы и состояние.
+
+   Подключение стилей — одной строкой в `src/main.tsx`:
+
+   ```ts
+   import './styles.css';
+   ```
 
 5. Собрать production-версию и проверить её локально (команды сборки и предпросмотра — в гайде Vite).
 
@@ -32,7 +38,7 @@ tic-tac-toe/
   src/
     main.tsx
     App.tsx
-    styles.css   (или App.css / *.module.css)
+    styles.css   (взять из assets/tic-tac-toe/styles.css)
 ```
 
 ## Критерии готовности
@@ -59,5 +65,6 @@ tic-tac-toe/
 - [Vite: Getting Started](https://vite.dev/guide/)
 - [Vite: Features](https://vite.dev/guide/features)
 - [React: Tutorial: Tic-Tac-Toe](https://react.dev/learn/tutorial-tic-tac-toe)
+- Стили игры из туториала: [`assets/tic-tac-toe/styles.css`](assets/tic-tac-toe/styles.css)
 - [React: documentation](https://react.dev/)
 - [React + TypeScript](https://react.dev/learn/typescript)
