@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Профиль кандидата // RETICULUM</title>
+  <link rel="icon" type="image/svg+xml" href="img/favicon.svg">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="frame">
+    <header class="site-header">
+      <a class="brand" href="index.html">
+        <img src="img/logo.svg" alt="Логотип ячейки RETICULUM">
+        <span class="brand-name">RETICULUM<span class="brand-sep">//</span>ячейка</span>
+      </a>
+      <nav class="site-nav" aria-label="Основная навигация">
+        <a href="index.html">Главная</a>
+        <a href="form.html">Анкета</a>
+        <a href="profile.html" class="active">Профиль</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="card">
+        <div class="profile-head">
+          <img class="profile-photo" src="img/avatar.jpg" alt="Фото кандидата">
+          <div>
+            <h1 class="profile-name">Wintermute</h1>
+            <p class="profile-status">статус: проверено</p>
+            <p class="profile-meta">уровень доверия: 3/5 · канал 07</p>
+          </div>
+        </div>
+        <a class="btn btn-ghost" href="form.html">Редактировать анкету</a>
+      </section>
+
+      <section class="card">
+        <h2>Данные анкеты</h2>
+        <dl class="profile-list">
+          <dt>Позывной</dt>
+          <dd>Wintermute</dd>
+          <dt>Прозвище</dt>
+          <dd>Тенистый</dd>
+          <dt>Любимое слово</dt>
+          <dd>static</dd>
+          <dt>Почта</dt>
+          <dd>glitsh@proton.me</dd>
+          <dt>Пароль</dt>
+          <dd class="dots">••••••••</dd>
+          <dt>Возраст</dt>
+          <dd>19</dd>
+          <dt>Счастливое число</dt>
+          <dd>13</dd>
+          <dt>Книг за лето</dt>
+          <dd>4</dd>
+          <dt>Дата рождения</dt>
+          <dd>14.03.2006</dd>
+          <dt>Первый вход в сеть</dt>
+          <dd>01.11.2019</dd>
+          <dt>Опыт с кодом</dt>
+          <dd>Сплю рядом с сервером</dd>
+          <dt>Канал связи</dt>
+          <dd>Telegram-канал</dd>
+          <dt>Обработка данных</dt>
+          <dd>согласие получено</dd>
+          <dt>О себе</dt>
+          <dd>Учусь на программиста, сплю под окном серверной. Пришёл в RETICULUM, потому что Wi-Fi в общаге — это уже слежка.</dd>
+          <dt>Анекдот</dt>
+          <dd>Заходит программист в бар. Бармен: «Вам как обычно?» Программист: «Нет, сегодня отформатирую диск и начну сначала».</dd>
+        </dl>
+      </section>
+
+      <section class="card">
+        <h2>Смена пароля</h2>
+        <form id="pw-form">
+          <div class="field">
+            <label for="pw-user">Позывной</label>
+            <input type="text" id="pw-user" name="username" value="Wintermute" autocomplete="username" required>
+          </div>
+          <div class="field">
+            <label for="current">Текущий пароль</label>
+            <input type="password" id="current" name="current" placeholder="старый пароль" autocomplete="current-password" required>
+          </div>
+          <div class="field">
+            <label for="newpass">Новый пароль</label>
+            <input type="password" id="newpass" name="newpass" placeholder="минимум 8 символов" minlength="8" autocomplete="new-password" required>
+          </div>
+          <div class="field">
+            <label for="repeat">Повторите новый пароль</label>
+            <input type="password" id="repeat" name="repeat" placeholder="ещё раз" minlength="8" autocomplete="new-password" required>
+          </div>
+          <button type="submit" class="btn btn-primary">Сохранить пароль</button>
+          <p class="form-note" id="pw-note" hidden></p>
+        </form>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-top">
+        <img src="img/logo.svg" alt="Логотип ячейки RETICULUM">
+        <div>
+          <p class="footer-name">RETICULUM // ячейка</p>
+          <p class="footer-tag">статика в чистом эфире</p>
+        </div>
+      </div>
+      <nav class="footer-nav" aria-label="Навигация в футере">
+        <a href="index.html">Главная</a>
+        <a href="form.html">Анкета</a>
+        <a href="profile.html">Профиль</a>
+      </nav>
+      <div class="footer-contacts">
+        <p>связь: noise@proton.me</p>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    const pwForm = document.getElementById("pw-form");
+    const pwNote = document.getElementById("pw-note");
+
+    pwForm.addEventListener("submit", (event) => {
+      event.preventDefault();
+      const fresh = document.getElementById("newpass");
+      const repeat = document.getElementById("repeat");
+
+      if (fresh.value !== repeat.value) {
+        pwNote.textContent = "Новые пароли не совпадают. Попробуй ещё раз.";
+        pwNote.classList.add("warn");
+      } else {
+        pwNote.textContent = "Пароль изменён. Старый уже сгорел.";
+        pwNote.classList.remove("warn");
+        pwForm.reset();
+      }
+
+      pwNote.hidden = false;
+      pwNote.scrollIntoView({ behavior: "smooth" });
+    });
+  </script>
+</body>
+</html>
