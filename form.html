@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Анкета кандидата // RETICULUM</title>
+  <link rel="icon" type="image/svg+xml" href="img/favicon.svg">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="frame">
+    <header class="site-header">
+      <a class="brand" href="index.html">
+        <img src="img/logo.svg" alt="Логотип ячейки RETICULUM">
+        <span class="brand-name">RETICULUM<span class="brand-sep">//</span>ячейка</span>
+      </a>
+      <nav class="site-nav" aria-label="Основная навигация">
+        <a href="index.html">Главная</a>
+        <a href="form.html" class="active">Анкета</a>
+        <a href="profile.html">Профиль</a>
+      </nav>
+    </header>
+
+    <main>
+      <h1 class="page-title">Анкета кандидата</h1>
+      <p class="page-intro">Заполни все поля со звёздочкой. Чем внимательнее заполнишь, тем быстрее пройдёшь проверку.</p>
+
+      <form class="card" id="entry-form">
+        <div class="field">
+          <label for="callsign">Позывной *</label>
+          <input type="text" id="callsign" name="callsign" placeholder="Например: Wintermute" autocomplete="username" required>
+        </div>
+
+        <div class="field">
+          <label for="nickname">Прозвище *</label>
+          <input type="text" id="nickname" name="nickname" placeholder="Как тебя называют свои" required>
+        </div>
+
+        <div class="field">
+          <label for="favword">Любимое слово по-английски *</label>
+          <input type="text" id="favword" name="favword" placeholder="static" required>
+        </div>
+
+        <div class="field">
+          <label for="email">Почта *</label>
+          <input type="email" id="email" name="email" placeholder="you@proton.me" autocomplete="email" required>
+        </div>
+
+        <div class="field">
+          <label for="password">Пароль *</label>
+          <input type="password" id="password" name="password" placeholder="минимум 8 символов" minlength="8" autocomplete="new-password" required>
+        </div>
+
+        <div class="row-2">
+          <div class="field">
+            <label for="age">Возраст *</label>
+            <input type="number" id="age" name="age" min="14" max="99" placeholder="19" required>
+          </div>
+          <div class="field">
+            <label for="lucky">Счастливое число *</label>
+            <input type="number" id="lucky" name="lucky" min="1" max="999" placeholder="13" required>
+          </div>
+        </div>
+
+        <div class="row-2">
+          <div class="field">
+            <label for="books">Книг за лето</label>
+            <input type="number" id="books" name="books" min="0" max="999" placeholder="0">
+          </div>
+          <div class="field">
+            <label for="firstlogin">Первый вход в сеть</label>
+            <input type="date" id="firstlogin" name="firstlogin">
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="birthdate">Дата рождения *</label>
+          <input type="date" id="birthdate" name="birthdate" required>
+        </div>
+
+        <div class="field">
+          <label for="experience">Опыт с кодом</label>
+          <select id="experience" name="experience">
+            <option value="none">Никогда не открывал IDE</option>
+            <option value="html" selected>Писал HTML и JS</option>
+            <option value="script">Писал скрипты</option>
+            <option value="server">Сплю рядом с сервером</option>
+          </select>
+        </div>
+
+        <fieldset class="field">
+          <legend>Канал связи</legend>
+          <div class="radio-group">
+            <label class="radio-option">
+              <input type="radio" name="channel" value="tg" checked>
+              <span>Telegram-канал</span>
+            </label>
+            <label class="radio-option">
+              <input type="radio" name="channel" value="mail">
+              <span>Разовая почта</span>
+            </label>
+            <label class="radio-option">
+              <input type="radio" name="channel" value="dead">
+              <span>Мёртвое письмо</span>
+            </label>
+          </div>
+        </fieldset>
+
+        <div class="field">
+          <label class="checkbox-option" for="agree">
+            <input type="checkbox" id="agree" name="agree" required>
+            <span>Согласен(а) на обработку моих данных ячейкой *</span>
+          </label>
+        </div>
+
+        <div class="field">
+          <label for="about">Несколько слов о себе *</label>
+          <textarea id="about" name="about" placeholder="Кто ты, чем занимаешься и почему хочешь в RETICULUM" required></textarea>
+        </div>
+
+        <div class="field">
+          <label for="joke">Несмешной анекдот</label>
+          <textarea id="joke" name="joke" placeholder="Расскажи так, чтобы мы точно не улыбнулись"></textarea>
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" class="btn btn-primary">Отправить в ячейку</button>
+          <button type="reset" class="btn btn-ghost">Сбросить</button>
+        </div>
+
+        <p class="form-note" id="form-note" hidden>Анкета принята. Переходим к твоему профилю…</p>
+      </form>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-top">
+        <img src="img/logo.svg" alt="Логотип ячейки RETICULUM">
+        <div>
+          <p class="footer-name">RETICULUM // ячейка</p>
+          <p class="footer-tag">статика в чистом эфире</p>
+        </div>
+      </div>
+      <nav class="footer-nav" aria-label="Навигация в футере">
+        <a href="index.html">Главная</a>
+        <a href="form.html">Анкета</a>
+        <a href="profile.html">Профиль</a>
+      </nav>
+      <div class="footer-contacts">
+        <p>связь: noise@proton.me</p>
+        <p>PGP: 4F2A 9C1D 77B0 3E88 61AC</p>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    const form = document.getElementById("entry-form");
+    const note = document.getElementById("form-note");
+
+    form.addEventListener("submit", (event) => {
+      event.preventDefault();
+      note.hidden = false;
+      note.scrollIntoView({ behavior: "smooth" });
+      setTimeout(() => {
+        location.href = "profile.html";
+      }, 1200);
+    });
+
+    form.addEventListener("reset", () => {
+      note.hidden = true;
+    });
+  </script>
+</body>
+</html>
