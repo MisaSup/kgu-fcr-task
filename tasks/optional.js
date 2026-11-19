@@ -8,8 +8,11 @@
 */
 
 export const factorial = (n) => {
-
-}
+    if (n <= 1) {
+        return 1;
+    }
+    return n * factorial(n - 1);
+};
 
 /*
     task-optional-01
@@ -22,8 +25,17 @@ export const factorial = (n) => {
 */
 
 export const fibonacci = (index) => {
-
-}
+    if (index < 0) {
+        return -1;
+    }
+    if (index === 0) {
+        return 0;
+    }
+    if (index === 1) {
+        return 1;
+    }
+    return fibonacci(index - 1) + fibonacci(index - 2);
+};
 
 /*
     task-optional-02
@@ -33,8 +45,8 @@ export const fibonacci = (index) => {
 */
 
 export const isFalsy = (value) => {
-    
-}
+    return !value;
+};
 
 /*
     task-optional-03
@@ -46,8 +58,8 @@ export const isFalsy = (value) => {
 */
 
 export const palindrome = (str) => {
-
-}
+    return str === str.split('').reverse().join('');
+};
 
 /*
     task-optional-04
@@ -65,8 +77,18 @@ export const palindrome = (str) => {
 */
 
 export const keepRepeated = (str) => {
+    const counts = new Map();
 
-}
+    for (const char of str) {
+        const key = char.toLowerCase();
+        counts.set(key, (counts.get(key) ?? 0) + 1);
+    }
+
+    return str
+        .split('')
+        .filter(char => counts.get(char.toLowerCase()) > 1)
+        .join('');
+};
 
 /*
     task-optional-05
@@ -84,6 +106,17 @@ export const keepRepeated = (str) => {
 */
 
 export const uniqueChars = (str) => {
+    const seen = new Set();
+    const result = [];
 
-}
+    for (const char of str) {
+        const key = char.toLowerCase();
 
+        if (!seen.has(key)) {
+            seen.add(key);
+            result.push(char);
+        }
+    }
+
+    return result.join('');
+};
