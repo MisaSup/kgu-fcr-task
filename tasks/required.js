@@ -7,9 +7,12 @@
     - Верните строку "Hello, World!"
 */
 
-export const helloWorld = () => {
+const helloMessage = 'Hello, World!';
 
-}
+export const helloWorld = () => {
+    console.log(helloMessage);
+    return helloMessage;
+};
 
 /*
     task-01
@@ -17,8 +20,8 @@ export const helloWorld = () => {
 */
 
 export const getString = (str) => {
-
-}
+    return str;
+};
 
 /*
     task-02 напишите несколько функций для работы с массивами
@@ -30,24 +33,24 @@ export const getString = (str) => {
 */
 
 export const getLength = (arr) => {
-
-}
+    return arr.length;
+};
 
 export const getFirst = (arr) => {
-
-}
+    return arr[0];
+};
 
 export const getLast = (arr) => {
-
-}
+    return arr[arr.length - 1];
+};
 
 export const pushElement = (arr, elem) => {
-
-}
+    return [...arr, elem];
+};
 
 export const popElement = (arr) => {
-
-}
+    return arr.pop();
+};
 
 /*
     task-03 напишите функцию, которая принимает объект и склеивает из значений его свойст строку
@@ -64,21 +67,21 @@ export const popElement = (arr) => {
     пример ответа: "The white cat has 4 legs"
 */
 
-export const getAnimalDescription = (obj) => {
-
-}
+export const getAnimalDescription = ({ animal, legs, color }) => {
+    return `The ${color} ${animal} has ${legs} legs`;
+};
 
 /*
     task-04 Напишите две функции, которые принимают объект и возвращают ключи и значения объекта в виде массива 
 */
 
 export const getObjKeys = (obj) => {
-
-}
+    return Object.keys(obj);
+};
 
 export const getObjValues = (obj) => {
-
-}
+    return Object.values(obj);
+};
 
 /*
     task-05 Напишите две функцию, которая добавляет новое свойство в объект или меняет существующее
@@ -88,8 +91,8 @@ export const getObjValues = (obj) => {
 */
 
 export const patchObj = (obj, updates) => {
-
-}
+    return { ...obj, ...updates };
+};
 
 /*
     task-06 Напишите функцию, которая принимает массив и элемент, который нужно удалить
@@ -98,16 +101,22 @@ export const patchObj = (obj, updates) => {
 */
 
 export const deleteItem = (arr, item) => {
+    const index = arr.indexOf(item);
 
-}
+    if (index === -1) {
+        return [...arr];
+    }
+
+    return [...arr.slice(0, index), ...arr.slice(index + 1)];
+};
 
 /*
     task-07 Напишите функцию которая принимает массив чисел и возвращает новый массив где все числа умножены на 2
 */
 
 export const multiplyByTwo = (arr) => {
-
-}
+    return arr.map(item => item * 2);
+};
 
 /*
     task-08 Напишите функцию которая принимает массив c количеством выполненных заданий и возвращает объект с оценками за задание
@@ -120,9 +129,29 @@ export const multiplyByTwo = (arr) => {
     Вывод функции: {5: 1, 4: 2, 3: 4, 2: 3}
 */
 
-export const getAssessments = (arr) => {
+const getGrade = (completedCount) => {
+    if (completedCount === 10) {
+        return 5;
+    }
+    if (completedCount >= 8) {
+        return 4;
+    }
+    if (completedCount >= 5) {
+        return 3;
+    }
+    return 2;
+};
 
-}
+export const getAssessments = (arr) => {
+    const result = {};
+
+    for (const completedCount of arr) {
+        const grade = getGrade(completedCount);
+        result[grade] = (result[grade] ?? 0) + 1;
+    }
+
+    return result;
+};
 
 /*
     task-09 Напишите две функции которые принимают массив и возвращают значение типа boolean
@@ -132,12 +161,12 @@ export const getAssessments = (arr) => {
 */
 
 export const hasBoolean = (arr) => {
-
-}
+    return arr.some(item => typeof item === 'boolean');
+};
 
 export const isStringArray = (arr) => {
-
-}
+    return arr.length > 0 && arr.every(item => typeof item === 'string');
+};
 
 /*
     task-10 Напишите функцию, которая принимает строку и возвращает измененную строку в эмо стиле
@@ -149,8 +178,13 @@ export const isStringArray = (arr) => {
 */
 
 export const return2007 = (str) => {
+    const transformed = str
+        .split('')
+        .reduce((result, char, index) => {
+            const casedChar = index % 2 === 0 ? char.toUpperCase() : char.toLowerCase();
+            const replacedChar = casedChar === 'В' ? 'Ф' : casedChar === 'в' ? 'ф' : casedChar;
+            return result + replacedChar;
+        }, '');
 
-}
-
-
-
+    return transformed + ':*';
+};
