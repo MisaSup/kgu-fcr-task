@@ -29,7 +29,19 @@ export interface IPerson {
 }
 
 export class Person implements IPerson {
-    // TODO: add fields, constructor and getFullName()
+    private firstName: string;
+    private lastName: string;
+    protected birthDate: Date;
+
+    constructor(firstName: string, lastName: string, birthDate: Date) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.birthDate = birthDate;
+    }
+
+    public getFullName(): string {
+        return `${this.firstName} ${this.lastName}`;
+    }
 }
 
 const person = new Person('Max', 'Mustermann', new Date(1990, 0, 1));
