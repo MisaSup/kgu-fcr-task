@@ -1,0 +1,13 @@
+{
+  "name": "ip-01",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "esbuild src/index.js --bundle --outfile=dist/index.js --format=esm",
+    "dev": "esbuild src/index.js --bundle --outfile=dist/index.js --format=esm --watch"
+  },
+  "devDependencies": {
+    "esbuild": "^0.28.2"
+  }
+}
