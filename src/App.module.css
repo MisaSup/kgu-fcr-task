@@ -1,5 +1,5 @@
-@import "../src/widgets/IpViewer/IpViewer.css";
-@import "../src/shared/ui/Spinner/Spinner.css";
+/* Базовые (глобальные) стили приложения: :root, body и #app —
+   глобальные селекторы, поэтому из CSS-модуля они действуют на всю страницу. */
 
 :root {
   --bg: #0f172a;

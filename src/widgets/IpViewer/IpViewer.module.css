@@ -1,11 +1,11 @@
-.ip-viewer {
+.ipViewer {
   flex: 1;
   display: flex;
   flex-direction: column;
   gap: 16px;
 }
 
-.ip-viewer__result {
+.ipViewerResult {
   flex: 1;
   display: flex;
   align-items: center;
@@ -18,11 +18,11 @@
   font-variant-numeric: tabular-nums;
 }
 
-.ip-viewer__result_error {
+.ipViewerResultError {
   color: var(--accent);
 }
 
-.ip-viewer__button {
+.ipViewerButton {
   width: 100%;
   min-height: 56px;
   border: none;
@@ -33,6 +33,10 @@
   font-weight: 600;
 }
 
-.ip-viewer__button:active {
+.ipViewerButton:active {
   transform: scale(0.98);
+}
+
+.ipViewerButton:disabled {
+  opacity: 0.7;
 }
