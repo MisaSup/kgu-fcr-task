@@ -2,3 +2,4 @@ node_modules
 dist
 .kilo
 opencode*
+package-lock.json
