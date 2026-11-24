@@ -1,5 +1,6 @@
 import TeamChip from '../TeamChip/TeamChip.js';
-import Spinner from '../../../../shared/lib/components/Spinner/Spinner.js';
+// TODO: uncomment after migrating TeamGrid to React (Spinner is a React component now)
+// import Spinner from '../../../../shared/lib/components/Spinner/Spinner.js';
 import type { Component } from '../../../../shared/lib/components/types.js';
 import * as z from "zod";
 
@@ -49,7 +50,8 @@ export const requestTeamGridData = async () => {
     return;
   }
 
-  container.innerHTML = Spinner({});
+  // TODO: uncomment after migrating TeamGrid to React (replace with <Spinner />)
+  // container.innerHTML = Spinner({});
 
   try {
     const rawData = await fetch(
