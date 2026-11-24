@@ -1,7 +1,7 @@
 {
   "scripts": {
-    "build": "esbuild ./src/index.ts --bundle --minify --outfile=public/script.js",
-    "dev": "esbuild ./src/index.ts --bundle --watch --outfile=public/script.js",
+    "build": "esbuild ./src/index.ts --bundle --minify --jsx=automatic --outfile=public/script.js",
+    "dev": "esbuild ./src/index.ts --bundle --watch --jsx=automatic --servedir=. --outfile=public/script.js",
     "typecheck": "tsc --noEmit"
   },
   "devDependencies": {
