@@ -1,0 +1,307 @@
+TAP version 13
+# Subtest: example insertionSort
+ok 1 - example insertionSort
+  ---
+  duration_ms: 4.3873
+  type: 'test'
+  ...
+# Subtest: example insertionSort does not mutate the source array
+ok 2 - example insertionSort does not mutate the source array
+  ---
+  duration_ms: 0.716
+  type: 'test'
+  ...
+# Subtest: task-optional-00 factorial
+not ok 3 - task-optional-00 factorial
+  ---
+  duration_ms: 5.1694
+  type: 'test'
+  location: 'C:\\Users\\user\\kgu-fcr-task\\__test__\\optional.test.js:5:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+    
+    undefined !== 1
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 1
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///C:/Users/user/kgu-fcr-task/__test__/optional.test.js:6:12)
+    Test.runInAsyncScope (node:async_hooks:226:14)
+    Test.run (node:internal/test_runner/test:1402:25)
+    Test.start (node:internal/test_runner/test:1262:17)
+    startSubtestAfterBootstrap (node:internal/test_runner/harness:387:17)
+  ...
+# Subtest: task-optional-01 fibonacci
+not ok 4 - task-optional-01 fibonacci
+  ---
+  duration_ms: 1.6127
+  type: 'test'
+  location: 'C:\\Users\\user\\kgu-fcr-task\\__test__\\optional.test.js:16:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+    
+    undefined !== -1
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: -1
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///C:/Users/user/kgu-fcr-task/__test__/optional.test.js:17:12)
+    Test.runInAsyncScope (node:async_hooks:226:14)
+    Test.run (node:internal/test_runner/test:1402:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+    Test.postRun (node:internal/test_runner/test:1542:19)
+    Test.run (node:internal/test_runner/test:1467:12)
+    async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3)
+  ...
+# Subtest: task-optional-02 isFalsy
+not ok 5 - task-optional-02 isFalsy
+  ---
+  duration_ms: 14.053
+  type: 'test'
+  location: 'C:\\Users\\user\\kgu-fcr-task\\__test__\\optional.test.js:32:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    The expression evaluated to a falsy value:
+    
+      assert.ok(isFalsy(null))
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  operator: '=='
+  stack: |-
+    TestContext.<anonymous> (file:///C:/Users/user/kgu-fcr-task/__test__/optional.test.js:33:12)
+    Test.runInAsyncScope (node:async_hooks:226:14)
+    Test.run (node:internal/test_runner/test:1402:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+    Test.postRun (node:internal/test_runner/test:1542:19)
+    Test.run (node:internal/test_runner/test:1467:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:974:7)
+  ...
+# Subtest: task-optional-03 palindrome
+not ok 6 - task-optional-03 palindrome
+  ---
+  duration_ms: 1.8297
+  type: 'test'
+  location: 'C:\\Users\\user\\kgu-fcr-task\\__test__\\optional.test.js:49:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    The expression evaluated to a falsy value:
+    
+      assert.ok(palindrome(''))
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  operator: '=='
+  stack: |-
+    TestContext.<anonymous> (file:///C:/Users/user/kgu-fcr-task/__test__/optional.test.js:50:12)
+    Test.runInAsyncScope (node:async_hooks:226:14)
+    Test.run (node:internal/test_runner/test:1402:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+    Test.postRun (node:internal/test_runner/test:1542:19)
+    Test.run (node:internal/test_runner/test:1467:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:974:7)
+  ...
+# Subtest: task-optional-04 keepRepeated
+not ok 7 - task-optional-04 keepRepeated
+  ---
+  duration_ms: 1.1192
+  type: 'test'
+  location: 'C:\\Users\\user\\kgu-fcr-task\\__test__\\optional.test.js:56:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+    
+    undefined !== ''
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: ''
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///C:/Users/user/kgu-fcr-task/__test__/optional.test.js:57:12)
+    Test.runInAsyncScope (node:async_hooks:226:14)
+    Test.run (node:internal/test_runner/test:1402:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+    Test.postRun (node:internal/test_runner/test:1542:19)
+    Test.run (node:internal/test_runner/test:1467:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:974:7)
+  ...
+# Subtest: task-optional-05 uniqueChars
+not ok 8 - task-optional-05 uniqueChars
+  ---
+  duration_ms: 2.96
+  type: 'test'
+  location: 'C:\\Users\\user\\kgu-fcr-task\\__test__\\optional.test.js:66:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+    
+    undefined !== ''
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: ''
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///C:/Users/user/kgu-fcr-task/__test__/optional.test.js:67:12)
+    Test.runInAsyncScope (node:async_hooks:226:14)
+    Test.run (node:internal/test_runner/test:1402:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+    Test.postRun (node:internal/test_runner/test:1542:19)
+    Test.run (node:internal/test_runner/test:1467:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:974:7)
+  ...
+# Hello, World!
+# Subtest: task-00 helloWorld
+ok 9 - task-00 helloWorld
+  ---
+  duration_ms: 4.2094
+  type: 'test'
+  ...
+# Subtest: task-01 getString
+ok 10 - task-01 getString
+  ---
+  duration_ms: 0.9098
+  type: 'test'
+  ...
+# Subtest: task-02 getLength, getFirst, getLast, pushElement, popElement
+    # Subtest: getLength
+    ok 1 - getLength
+      ---
+      duration_ms: 0.5983
+      type: 'test'
+      ...
+    # Subtest: getFirst
+    ok 2 - getFirst
+      ---
+      duration_ms: 0.5817
+      type: 'test'
+      ...
+    # Subtest: getLast
+    ok 3 - getLast
+      ---
+      duration_ms: 0.5374
+      type: 'test'
+      ...
+    # Subtest: pushElement
+    ok 4 - pushElement
+      ---
+      duration_ms: 2.2132
+      type: 'test'
+      ...
+    # Subtest: popElement
+    ok 5 - popElement
+      ---
+      duration_ms: 0.6728
+      type: 'test'
+      ...
+    1..5
+ok 11 - task-02 getLength, getFirst, getLast, pushElement, popElement
+  ---
+  duration_ms: 7.8144
+  type: 'test'
+  ...
+# Subtest: task-03 getAnimalDescription
+ok 12 - task-03 getAnimalDescription
+  ---
+  duration_ms: 0.9007
+  type: 'test'
+  ...
+# Subtest: task-04 getObjKeys, getObjValues
+    # Subtest: getObjKeys
+    ok 1 - getObjKeys
+      ---
+      duration_ms: 0.7049
+      type: 'test'
+      ...
+    # Subtest: getObjValues
+    ok 2 - getObjValues
+      ---
+      duration_ms: 0.3187
+      type: 'test'
+      ...
+    1..2
+ok 13 - task-04 getObjKeys, getObjValues
+  ---
+  duration_ms: 2.0716
+  type: 'test'
+  ...
+# Subtest: task-05 patchObj
+ok 14 - task-05 patchObj
+  ---
+  duration_ms: 0.9645
+  type: 'test'
+  ...
+# Subtest: task-06 deleteItem
+    # Subtest: delete non existing item
+    ok 1 - delete non existing item
+      ---
+      duration_ms: 0.5819
+      type: 'test'
+      ...
+    # Subtest: delete existing item
+    ok 2 - delete existing item
+      ---
+      duration_ms: 0.6244
+      type: 'test'
+      ...
+    1..2
+ok 15 - task-06 deleteItem
+  ---
+  duration_ms: 4.2606
+  type: 'test'
+  ...
+# Subtest: task-07 multiplyByTwo
+ok 16 - task-07 multiplyByTwo
+  ---
+  duration_ms: 0.4796
+  type: 'test'
+  ...
+# Subtest: task-08 getAssessments
+ok 17 - task-08 getAssessments
+  ---
+  duration_ms: 0.512
+  type: 'test'
+  ...
+# Subtest: task-09 hasBoolean, isStringArray
+    # Subtest: hasBoolean
+    ok 1 - hasBoolean
+      ---
+      duration_ms: 0.4379
+      type: 'test'
+      ...
+    # Subtest: isStringArray
+    ok 2 - isStringArray
+      ---
+      duration_ms: 0.2916
+      type: 'test'
+      ...
+    1..2
+ok 18 - task-09 hasBoolean, isStringArray
+  ---
+  duration_ms: 1.6085
+  type: 'test'
+  ...
+# Subtest: task-10 return2007
+ok 19 - task-10 return2007
+  ---
+  duration_ms: 0.4302
+  type: 'test'
+  ...
+1..19
+# tests 30
+# suites 0
+# pass 24
+# fail 6
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 279.1145
