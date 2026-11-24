@@ -8,7 +8,9 @@
 */
 
 export const helloWorld = () => {
-
+    const message = "Hello, World!";
+    console.log(message);
+    return message;
 }
 
 /*
@@ -17,6 +19,7 @@ export const helloWorld = () => {
 */
 
 export const getString = (str) => {
+    return str;
 
 }
 
@@ -30,23 +33,29 @@ export const getString = (str) => {
 */
 
 export const getLength = (arr) => {
+    return arr.length;
 
 }
 
 export const getFirst = (arr) => {
+    return arr[0];
 
 }
 
 export const getLast = (arr) => {
+    return arr[arr.length - 1];
 
 }
 
 export const pushElement = (arr, elem) => {
+    arr.push(elem);
+    return arr;
+    
 
 }
 
 export const popElement = (arr) => {
-
+    return arr.pop();
 }
 
 /*
@@ -65,7 +74,8 @@ export const popElement = (arr) => {
 */
 
 export const getAnimalDescription = (obj) => {
-
+    const { animal, legs, color } = obj;
+    return `The ${color} ${animal} has ${legs} legs`;
 }
 
 /*
@@ -73,11 +83,11 @@ export const getAnimalDescription = (obj) => {
 */
 
 export const getObjKeys = (obj) => {
-
+    return Object.keys(obj);
 }
 
 export const getObjValues = (obj) => {
-
+    return Object.values(obj);
 }
 
 /*
@@ -88,7 +98,7 @@ export const getObjValues = (obj) => {
 */
 
 export const patchObj = (obj, updates) => {
-
+    return { ...obj, ...updates };
 }
 
 /*
@@ -98,7 +108,9 @@ export const patchObj = (obj, updates) => {
 */
 
 export const deleteItem = (arr, item) => {
-
+    return arr.filter((element) => {
+        return element !== item;
+    });
 }
 
 /*
@@ -106,7 +118,9 @@ export const deleteItem = (arr, item) => {
 */
 
 export const multiplyByTwo = (arr) => {
-
+    return arr.map((number) => {
+        return number * 2;
+    });
 }
 
 /*
@@ -121,7 +135,23 @@ export const multiplyByTwo = (arr) => {
 */
 
 export const getAssessments = (arr) => {
+    return arr.reduce((assessments, completedTasks) => {
+        let grade;
 
+        if (completedTasks === 10) {
+            grade = 5;
+        } else if (completedTasks >= 8) {
+            grade = 4;
+        } else if (completedTasks >= 5) {
+            grade = 3;
+        } else {
+            grade = 2;
+        }
+
+        assessments[grade] = (assessments[grade] || 0) + 1;
+
+        return assessments;
+    }, {});
 }
 
 /*
@@ -132,11 +162,11 @@ export const getAssessments = (arr) => {
 */
 
 export const hasBoolean = (arr) => {
-
+    return arr.some((element) => typeof element === "boolean");
 }
 
 export const isStringArray = (arr) => {
-
+    return arr.length > 0 && arr.every((element) => typeof element === "string");
 }
 
 /*
@@ -149,7 +179,20 @@ export const isStringArray = (arr) => {
 */
 
 export const return2007 = (str) => {
+    return str
+        .split("")
+        .reduce((result, char, index) => {
+            const replacedChar = char === "В" ? "Ф" : char === "в" ? "ф" : char;
 
+            const styledChar = index % 2 === 0
+                ? replacedChar.toUpperCase()
+                : replacedChar.toLowerCase();
+
+            result.push(styledChar);
+
+            return result;
+        }, [])
+        .join("") + ":*";
 }
 
 
