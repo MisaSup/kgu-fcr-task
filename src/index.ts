@@ -1,4 +1,5 @@
 import App from './App.js';
+import { requestData } from './container.js';
 
 const render = (): void => {
     const appRoot = document.querySelector<HTMLElement>('#app');
@@ -8,6 +9,7 @@ const render = (): void => {
     }
 
     appRoot.innerHTML = App({});
+    requestData();
 };
 
 window.onload = render;
