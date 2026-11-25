@@ -1,18 +1,23 @@
-import { Badge } from "@mantine/core";
-import { ProductsList } from "./feature/products";
+import { ProductsList, type Product } from "./feature/products";
+import { Header } from "./widget";
 import classes from "./App.module.css";
+import { useState } from "react";
 
 function App() {
+  const [cart, setCart] = useState<Product[]>([]);
+
   return (
     <>
-      <header className={classes.header}>
-        <h2 className={classes.logo}>Marketplace</h2>
-        <Badge size="lg" variant="light">
-          Корзина: 0
-        </Badge>
-      </header>
+      <Header
+        cart={cart}
+        removeFromCart={(product) => setCart(cart.filter((item) => item.id !== product.id))}
+      />
       <main className={classes.main}>
-        <ProductsList />
+        <ProductsList
+          cart={cart}
+          addToCart={(product) => setCart([...cart, product])}
+          removeFromCart={(product) => setCart(cart.filter((item) => item.id !== product.id))}
+        />
       </main>
     </>
   );

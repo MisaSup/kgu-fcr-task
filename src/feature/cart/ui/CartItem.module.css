@@ -1,0 +1,10 @@
+.item {
+  display: flex;
+  align-items: center;
+  gap: var(--mantine-spacing-sm);
+  min-width: 220px;
+}
+
+.title {
+  flex: 1;
+}

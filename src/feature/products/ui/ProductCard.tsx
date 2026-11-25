@@ -1,23 +1,19 @@
 import { ActionIcon, Badge, Button, Card, Group, Image, Menu, Text } from "@mantine/core";
 import { notifications } from "@mantine/notifications";
-import { IconDots, IconPencil, IconTrash } from "@tabler/icons-react";
 import type { Product } from "../model/types";
 import classes from "./ProductCard.module.css";
+import { IconDots, IconTrash } from "@tabler/icons-react";
 
 type ProductCardProps = {
   product: Product;
+  removeFromCart: (product: Product) => void;
+  addToCart: (product: Product) => void;
+  cart: Product[];
 };
 
-export function ProductCard({ product }: ProductCardProps) {
-  const handleEdit = () => {
-    notifications.show({
-      title: "Редактирование",
-      message: `Редактируем «${product.title}»`,
-      color: "blue",
-    });
-  };
-
+export function ProductCard({ product, removeFromCart, addToCart, cart }: ProductCardProps) {
   const handleDelete = () => {
+    removeFromCart(product);
     notifications.show({
       title: "Удалено",
       message: `Товар «${product.title}» удалён`,
@@ -26,12 +22,15 @@ export function ProductCard({ product }: ProductCardProps) {
   };
 
   const handleAddToCart = () => {
+    addToCart(product);
     notifications.show({
       title: "Добавлено в корзину",
       message: product.title,
       color: "teal",
     });
   };
+
+  const isInCart = cart.some((item) => item.id === product.id);
 
   return (
     <Card className={classes.card} padding="lg" radius="md" withBorder>
@@ -51,8 +50,14 @@ export function ProductCard({ product }: ProductCardProps) {
       </Text>
 
       <Group mt="md" justify="space-between">
-        <Button variant="light" onClick={handleAddToCart}>
-          В корзину
+        <Button
+          variant="light"
+          color={isInCart ? "teal" : "indigo"}
+          className={classes.cartButton}
+          onClick={handleAddToCart}
+          disabled={isInCart}
+        >
+          {isInCart ? "В корзине" : "В корзину"}
         </Button>
 
         <Menu position="bottom-end" withinPortal>
@@ -62,11 +67,8 @@ export function ProductCard({ product }: ProductCardProps) {
             </ActionIcon>
           </Menu.Target>
           <Menu.Dropdown>
-            <Menu.Item leftSection={<IconPencil size={16} />} onClick={handleEdit}>
-              Редактировать
-            </Menu.Item>
             <Menu.Item color="red" leftSection={<IconTrash size={16} />} onClick={handleDelete}>
-              Удалить
+              Удалить из корзины
             </Menu.Item>
           </Menu.Dropdown>
         </Menu>

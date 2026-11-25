@@ -1,9 +1,15 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, type FC } from "react";
 import { productsSchema, type Product } from "../model/types";
 import { ProductCard } from "./ProductCard";
 import classes from "./ProductsList.module.css";
 
-export function ProductsList() {
+interface Props {
+  removeFromCart: (product: Product) => void;
+  addToCart: (product: Product) => void;
+  cart: Product[];
+}
+
+export const ProductsList: FC<Props> = ({ removeFromCart, addToCart, cart }) => {
   const [products, setProducts] = useState<Product[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -52,10 +58,15 @@ export function ProductsList() {
       <ul className={classes.grid}>
         {products.map((product) => (
           <li key={product.id}>
-            <ProductCard product={product} />
+            <ProductCard
+              product={product}
+              removeFromCart={removeFromCart}
+              addToCart={addToCart}
+              cart={cart}
+            />
           </li>
         ))}
       </ul>
     </>
   );
-}
+};
