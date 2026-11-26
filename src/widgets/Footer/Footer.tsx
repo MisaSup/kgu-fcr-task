@@ -6,7 +6,7 @@ const Footer: FC = () => {
             <div className="site-footer__top">
                 <img
                     className="site-footer__logo"
-                    src="http://172.30.82.99:3000/assets/logo.svg"
+                    src="assets/logo.svg"
                     alt="Логотип Pit Lane F1 Fan Club"
                 />
             </div>

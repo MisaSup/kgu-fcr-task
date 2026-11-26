@@ -5,7 +5,7 @@ const ProfileSection: FC = () => {
         <section className="hero" aria-labelledby="hero-title">
             <img
                 className="hero__img"
-                src="http://172.30.82.99:8000/assets/hero.svg"
+                src="assets/hero.svg"
                 alt="Болид Формулы-1 на трассе"
             />
             <div className="hero__body">

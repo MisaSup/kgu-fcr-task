@@ -1,88 +1,75 @@
+import { useEffect, useState } from 'react';
+import * as z from 'zod';
+import Spinner from '../../../../shared/lib/components/Spinner/Spinner.js';
 import TeamChip from '../TeamChip/TeamChip.js';
-// TODO: uncomment after migrating TeamGrid to React (Spinner is a React component now)
-// import Spinner from '../../../../shared/lib/components/Spinner/Spinner.js';
-import type { Component } from '../../../../shared/lib/components/types.js';
-import * as z from "zod";
 
-type Team = {
-  teamName: string;
-  color: string;
-};
+const TeamsChampionshipsSchema = z
+    .object({
+        points_current: z.number(),
+        position_current: z.number(),
+        team_name: z.string(),
+    })
+    .array();
 
-type ChampionshipTeam = {
-  meeting_key: string;
-  points_current: number;
-  points_start: number;
-  position_current: number;
-  position_start: number;
-  session_key: number;
-  team_name: string;
-};
+export type TeamsChampionshipItem = z.infer<typeof TeamsChampionshipsSchema>[number];
 
-const TeamsChampionshipsSchema = z.object({
-  points_current: z.number(),
-  position_current: z.number(),
-  team_name: z.string(),
-}).array()
+const TeamsGrid = () => {
+    const [teams, setTeams] = useState<TeamsChampionshipItem[] | null>(null);
+    const [error, setError] = useState<string | null>(null);
 
-export type TeamsChampionshipItem = z.infer<typeof TeamsChampionshipsSchema>[number]
+    useEffect(() => {
+        let ignore = false;
 
-const teams: Team[] = [
-  { teamName: 'Ferrari', color: 'red' },
-  { teamName: 'Red Bull', color: 'orange' },
-  { teamName: 'Mercedes', color: 'silver' },
-  { teamName: 'McLaren', color: 'papaya' },
-  { teamName: 'Aston Martin', color: 'green' },
-  { teamName: 'Alpine', color: 'blue' },
-];
+        const loadTeams = async () => {
+            try {
+                const rawData = await fetch(
+                    'https://api.openf1.org/v1/championship_teams?session_key=latest',
+                );
+                const data: unknown = await rawData.json();
+                const championshipData = TeamsChampionshipsSchema.parse(data);
 
-const TeamsGrid: Component = () => {
-  return `
-        <div class="team-grid" role="list">
-        </div>
-    `;
-};
+                if (!ignore) {
+                    setTeams(championshipData);
+                }
+            } catch (caught) {
+                if (ignore) {
+                    return;
+                }
 
-export const requestTeamGridData = async () => {
-  const container = document.querySelector('.team-grid');
+                setError(
+                    caught instanceof z.ZodError ? z.prettifyError(caught) : String(caught),
+                );
+            }
+        };
 
-  if (!container) {
-    return;
-  }
+        loadTeams();
 
-  // TODO: uncomment after migrating TeamGrid to React (replace with <Spinner />)
-  // container.innerHTML = Spinner({});
+        return () => {
+            ignore = true;
+        };
+    }, []);
 
-  try {
-    const rawData = await fetch(
-      "https://api.openf1.org/v1/championship_teams?session_key=latest",
-    );
-    const data: ChampionshipTeam[] = await rawData.json()
-
-    const championshipData = TeamsChampionshipsSchema.parse(data);
-
-    container.innerHTML = championshipData.map((chip) => TeamChip(chip)).join('');
-  } catch (error) {
-    if (error instanceof z.ZodError) {
-      container.innerHTML = `
-      <div class="error-state" role="alert">
-      <span class="error-state__icon">!</span>
-      <h2 class="error-state__title">Error!</h2>
-      <p class="error-state__message">${z.prettifyError(error)}</p>
-      </div>
-      `;
-    } else {
-
-      container.innerHTML = `
-      <div class="error-state" role="alert">
-      <span class="error-state__icon">!</span>
-      <h2 class="error-state__title">Error!</h2>
-      <p class="error-state__message">${error}</p>
-      </div>
-      `;
+    if (error) {
+        return (
+            <div className="error-state" role="alert">
+                <span className="error-state__icon">!</span>
+                <h2 className="error-state__title">Error!</h2>
+                <p className="error-state__message">{error}</p>
+            </div>
+        );
     }
-  }
 
-}
+    if (!teams) {
+        return <Spinner />;
+    }
+
+    return (
+        <div className="team-grid" role="list">
+            {teams.map((team) => (
+                <TeamChip key={team.team_name} {...team} />
+            ))}
+        </div>
+    );
+};
 
 export default TeamsGrid;

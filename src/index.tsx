@@ -1,5 +1,5 @@
+import { createRoot } from 'react-dom/client';
 import App from './App.js';
-import { requestData } from './container.js';
 
 const render = (): void => {
     const appRoot = document.querySelector<HTMLElement>('#app');
@@ -8,8 +8,7 @@ const render = (): void => {
         throw new Error('Root element #app not found');
     }
 
-    appRoot.innerHTML = App({});
-    requestData();
+    createRoot(appRoot).render(<App />);
 };
 
 window.onload = render;
