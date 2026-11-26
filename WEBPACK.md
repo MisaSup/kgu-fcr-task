@@ -295,35 +295,35 @@ export default {
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import HtmlWebpackPlugin from "html-webpack-plugin";
-// Вариант 1 (как было): default-импорт, из которого потом достаём EsbuildPlugin
-// import esbuildLoader from "esbuild-loader";
-// Вариант 2: именованный импорт
 import { EsbuildPlugin } from "esbuild-loader";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 export default (env, argv) => {
-  const isProd = argv.mode === "production";
+  const mode = argv.mode ?? "development";
+  const isProd = mode === "production";
 
   return {
-    mode: argv.mode ?? "development",
+    mode,
     entry: "./src/index.js",
     output: {
       filename: "main.js",
       path: path.resolve(__dirname, "dist"),
     },
     resolve: {
-      // Позволяет писать import "./App" без расширения
-      extensions: [".tsx", ".ts", ".jsx", ".js"],
+      // Позволяет импортировать "./App.js", когда файл на самом деле App.tsx
+      extensionAlias: {
+        ".js": [".ts", ".tsx", ".js"],
+        ".mjs": [".mts", ".mjs"],
+        ".cjs": [".cts", ".cjs"],
+      },
     },
-    devtool: isProd ? "source-map" : "eval-cheap-module-source-map",
+    devtool: isProd ? false : "source-map",
     devServer: {
       static: path.resolve(__dirname, "public"),
       port: 3000,
-      open: true,
       hot: true,
-      historyApiFallback: true,
     },
     plugins: [
       new HtmlWebpackPlugin({
@@ -345,7 +345,7 @@ export default (env, argv) => {
 
 - `argv.mode` приходит из CLI: `webpack serve --mode development` или `webpack --mode production`.
 - `isProd` — единый флаг, по которому дальше включаем/выключаем оптимизации.
-- `devtool` тоже зависит от режима: быстрые source maps в dev, полноценные в prod.
+- `devtool` тоже зависит от режима: source maps только в dev (`"source-map"`), в prod отключены (`false`).
 
 ## Шаг 8. Production-оптимизации
 
@@ -370,16 +370,13 @@ bun add mini-css-extract-plugin --dev
 ```js
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
 
-// Вариант 1 (как было): EsbuildPlugin достаём из default-импорта (см. Шаг 7)
-// const { EsbuildPlugin } = esbuildLoader;
-// Вариант 2: EsbuildPlugin уже импортирован именованно (см. Шаг 7)
-
 export default (env, argv) => {
-  const isProd = argv.mode === "production";
+  const mode = argv.mode ?? "development";
+  const isProd = mode === "production";
 
   return {
-    mode: argv.mode ?? "development",
-    entry: "./src/index.ts",
+    mode,
+    entry: "./src/index.tsx",
     output: {
       path: path.resolve(__dirname, "dist"),
       // в prod — хеш, в dev — стабильное имя для быстрых пересборок
@@ -387,14 +384,19 @@ export default (env, argv) => {
       assetModuleFilename: "assets/[name].[contenthash][ext]",
       clean: true,
     },
-    devtool: isProd ? "source-map" : "eval-cheap-module-source-map",
+    devtool: isProd ? false : "source-map",
     resolve: {
-      extensions: [".tsx", ".ts", ".jsx", ".js"],
+      // Позволяет импортировать "./App.js", когда файл на самом деле App.tsx
+      extensionAlias: {
+        ".js": [".ts", ".tsx", ".js"],
+        ".mjs": [".mts", ".mjs"],
+        ".cjs": [".cts", ".cjs"],
+      },
     },
     optimization: {
       minimize: isProd,
       minimizer: [
-        new EsbuildPlugin({ target: "es2015", minify: true, css: true }),
+        new EsbuildPlugin({ target: "es2020", minify: true, css: true }),
       ],
       // splitChunks имеет смысл только для prod-сборки
       splitChunks: isProd
@@ -414,9 +416,7 @@ export default (env, argv) => {
     devServer: {
       static: path.resolve(__dirname, "public"),
       port: 3000,
-      open: true,
       hot: true,
-      historyApiFallback: true,
     },
     plugins: [
       new HtmlWebpackPlugin({
@@ -453,6 +453,7 @@ export default (env, argv) => {
             filename: "assets/images/[name].[contenthash][ext]",
           },
         },
+        // Шрифты
         {
           test: /\.(woff2?|eot|ttf|otf)$/i,
           type: "asset/resource",
@@ -460,6 +461,7 @@ export default (env, argv) => {
             filename: "assets/fonts/[name].[contenthash][ext]",
           },
         },
+        // Аудио и видео
         {
           test: /\.(mp3|wav|mp4|webm)$/i,
           type: "asset/resource",
@@ -468,6 +470,9 @@ export default (env, argv) => {
           },
         },
       ],
+    },
+    performance: {
+      hints: false,
     },
   };
 };
@@ -481,37 +486,43 @@ export default (env, argv) => {
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import HtmlWebpackPlugin from "html-webpack-plugin";
-import MiniCssExtractPlugin from "mini-css-extract-plugin";
-// Вариант 1 (как было): default-импорт + деструктуризация
-// import esbuildLoader from "esbuild-loader";
-// const { EsbuildPlugin } = esbuildLoader;
-// Вариант 2: именованный импорт
 import { EsbuildPlugin } from "esbuild-loader";
+import MiniCssExtractPlugin from "mini-css-extract-plugin";
 
+// В Node.js до нативной поддержки import.meta.dirname
+// получаем __dirname из import.meta.url.
+// (Node 20.11+ умеет import.meta.dirname и import.meta.filename.)
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 export default (env, argv) => {
-  const isProd = argv.mode === "production";
+  const mode = argv.mode ?? "development";
+  const isProd = mode === "production";
 
   return {
-    mode: argv.mode ?? "development",
-    entry: "./src/index.ts",
+    mode,
+    entry: "./src/index.tsx",
     output: {
-      path: path.resolve(__dirname, "dist"),
       filename: isProd ? "[name].[contenthash].js" : "[name].js",
+      path: path.resolve(__dirname, "dist"),
       assetModuleFilename: "assets/[name].[contenthash][ext]",
       clean: true,
     },
-    devtool: isProd ? "source-map" : "eval-cheap-module-source-map",
+    devtool: isProd ? false : "source-map",
     resolve: {
-      extensions: [".tsx", ".ts", ".jsx", ".js"],
+      // Позволяет импортировать "./App.js", когда файл на самом деле App.tsx
+      extensionAlias: {
+        ".js": [".ts", ".tsx", ".js"],
+        ".mjs": [".mts", ".mjs"],
+        ".cjs": [".cts", ".cjs"],
+      },
     },
     optimization: {
       minimize: isProd,
       minimizer: [
-        new EsbuildPlugin({ target: "es2015", minify: true, css: true }),
+        new EsbuildPlugin({ target: "es2020", minify: true, css: true }),
       ],
+      // splitChunks имеет смысл только для prod-сборки
       splitChunks: isProd
         ? {
             chunks: "all",
@@ -529,9 +540,7 @@ export default (env, argv) => {
     devServer: {
       static: path.resolve(__dirname, "public"),
       port: 3000,
-      open: true,
       hot: true,
-      historyApiFallback: true,
     },
     plugins: [
       new HtmlWebpackPlugin({
@@ -566,6 +575,7 @@ export default (env, argv) => {
             filename: "assets/images/[name].[contenthash][ext]",
           },
         },
+        // Шрифты
         {
           test: /\.(woff2?|eot|ttf|otf)$/i,
           type: "asset/resource",
@@ -573,6 +583,7 @@ export default (env, argv) => {
             filename: "assets/fonts/[name].[contenthash][ext]",
           },
         },
+        // Аудио и видео
         {
           test: /\.(mp3|wav|mp4|webm)$/i,
           type: "asset/resource",
@@ -581,6 +592,9 @@ export default (env, argv) => {
           },
         },
       ],
+    },
+    performance: {
+      hints: false,
     },
   };
 };
@@ -604,7 +618,7 @@ export default (env, argv) => {
 
 - **`ERR_REQUIRE_ESM` / `Cannot use import statement`** — конфиг с `import` должен быть `.mjs` **или** в `package.json` должен стоять `"type": "module"`.
 - **Стили не применяются** — проверьте порядок loaders: они работают справа налево, `style-loader` (или `MiniCssExtractPlugin.loader`) всегда первый.
-- **`Module not found: ./App`** — добавьте расширение или правило `resolve.extensions`.
+- **`Module not found: ./App.js`** — используйте правило `resolve.extensionAlias`, чтобы `./App.js` находил `App.tsx` (см. Шаг 7), либо импортируйте с реальным расширением.
 - **HMR не работает** — убедитесь, что запускаете `webpack serve` (не `webpack`), и что `hot: true` задан.
 - **`contenthash` пустой/мешает в dev** — используйте условное имя файла (`isProd ? "[name].[contenthash].js" : "[name].js"`), как в конфиге выше.
 - **Ассеты не копируются** — проверьте, что тип `asset/resource` и файл действительно импортируется в JS/CSS.
