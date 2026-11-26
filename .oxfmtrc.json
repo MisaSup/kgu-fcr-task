@@ -1,0 +1,12 @@
+{
+  "$schema": "./node_modules/oxfmt/configuration_schema.json",
+  "ignorePatterns": [
+    "dist/**",
+    "README.md",
+    "TASK.md",
+    "DEMO.md",
+    "WEBPACK.md",
+    "package-lock.json",
+    "public/script.js"
+  ]
+}

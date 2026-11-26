@@ -1,123 +1,160 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ru">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Профиль болельщика — Pit Lane</title>
-  <meta name="description" content="Профиль болельщика Формулы-1: данные анкеты и смена пароля.">
-  <link rel="icon" type="image/svg+xml" href="http://172.30.82.99:3000/assets/favicon.svg">
-  <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-  <div class="phone">
-    <header class="site-header">
-      <a class="brand" href="/" aria-label="Pit Lane — на главную">
-        <img class="brand__logo" src="http://172.30.82.99:3000/assets/logo.svg" alt="Логотип Pit Lane F1 Fan Club">
-      </a>
-      <span class="header__badge">F1 Fan Club</span>
-    </header>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Профиль болельщика — Pit Lane</title>
+    <meta
+      name="description"
+      content="Профиль болельщика Формулы-1: данные анкеты и смена пароля."
+    />
+    <link rel="icon" type="image/svg+xml" href="http://172.30.82.99:3000/assets/favicon.svg" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="phone">
+      <header class="site-header">
+        <a class="brand" href="/" aria-label="Pit Lane — на главную">
+          <img
+            class="brand__logo"
+            src="http://172.30.82.99:3000/assets/logo.svg"
+            alt="Логотип Pit Lane F1 Fan Club"
+          />
+        </a>
+        <span class="header__badge">F1 Fan Club</span>
+      </header>
 
-    <nav class="site-nav" aria-label="Основная навигация">
-      <a class="site-nav__link" href="/">Главная</a>
-      <a class="site-nav__link" href="/public/profile" aria-current="page">Профиль</a>
-    </nav>
-
-    <main class="content">
-      <section class="profile-head" aria-labelledby="profile-name">
-        <img class="profile-head__avatar" src="http://172.30.82.99:3000/assets/avatar.svg" alt="Фото профиля: Владислав, болельщик Ferrari">
-        <div class="profile-head__info">
-          <p class="profile-head__role">Болельщик · Ferrari</p>
-          <h1 class="profile-head__name" id="profile-name">Михаил</h1>
-          <p class="profile-head__meta">В клубе с 2026 года · 5 гонок на трибуне</p>
-        </div>
-      </section>
-
-      <section class="card" aria-labelledby="data-title">
-        <h2 class="card__title" id="data-title">Данные анкеты</h2>
-        <div class="info-list">
-          <div class="info-row">
-            <span class="info-row__key">Имя</span>
-            <span class="info-row__value">Михаил</span>
-          </div>
-          <div class="info-row">
-            <span class="info-row__key">Прозвище в паддоке</span>
-            <span class="info-row__value">HelloWorld</span>
-          </div>
-          <div class="info-row">
-            <span class="info-row__key">Email</span>
-            <span class="info-row__value">fan@example.com</span>
-          </div>
-          <div class="info-row">
-            <span class="info-row__key">Пароль</span>
-            <span class="info-row__value">••••••••</span>
-          </div>
-          <div class="info-row">
-            <span class="info-row__key">Возраст</span>
-            <span class="info-row__value">21</span>
-          </div>
-          <div class="info-row">
-            <span class="info-row__key">Счастливое число</span>
-            <span class="info-row__value">16</span>
-          </div>
-          <div class="info-row">
-            <span class="info-row__key">Дата рождения</span>
-            <span class="info-row__value">2004-05-16</span>
-          </div>
-          <div class="info-row">
-            <span class="info-row__key">Любимая команда</span>
-            <span class="info-row__value">Ferrari</span>
-          </div>
-          <div class="info-row">
-            <span class="info-row__key">Как часто смотрю</span>
-            <span class="info-row__value">Все гонки сезона</span>
-          </div>
-          <div class="info-row">
-            <span class="info-row__key">Рассылка</span>
-            <span class="info-row__value">Подписан</span>
-          </div>
-          <div class="info-row">
-            <span class="info-row__key">О себе</span>
-            <span class="info-row__value">Болею за Ferrari с детства, собираю модели болидов.</span>
-          </div>
-        </div>
-      </section>
-
-      <section class="card" aria-labelledby="security-title">
-        <h2 class="card__title" id="security-title">Смена пароля</h2>
-        <form class="form" action="#" method="post">
-          <div class="field">
-            <label class="field__label" for="current-password">Введите текущий пароль</label>
-            <input type="password" id="current-password" name="current-password" placeholder="Текущий пароль" required>
-          </div>
-          <div class="field">
-            <label class="field__label" for="new-password">Введите новый пароль</label>
-            <input type="password" id="new-password" name="new-password" minlength="6" placeholder="Минимум 6 символов" required>
-          </div>
-          <div class="field">
-            <label class="field__label" for="repeat-password">Повторите новый пароль</label>
-            <input type="password" id="repeat-password" name="repeat-password" minlength="6" placeholder="Ещё раз новый пароль" required>
-          </div>
-          <div class="field__hint">После смены пароля потребуется войти заново.</div>
-          <button class="btn btn--primary btn--block" type="submit">Обновить пароль</button>
-        </form>
-      </section>
-    </main>
-
-    <footer class="site-footer">
-      <div class="site-footer__top">
-        <img class="site-footer__logo" src="http://172.30.82.99:3000/assets/logo.svg" alt="Логотип Pit Lane F1 Fan Club">
-      </div>
-      <nav class="site-footer__nav" aria-label="Навигация в подвале">
-        <a href="/">Главная</a>
-        <a href="/public/profile">Профиль</a>
+      <nav class="site-nav" aria-label="Основная навигация">
+        <a class="site-nav__link" href="/">Главная</a>
+        <a class="site-nav__link" href="/public/profile" aria-current="page">Профиль</a>
       </nav>
-      <div class="site-footer__contacts">
-        <span>Связь с клубом:</span>
-        <a href="mailto:pitlane@f1fan.example">pitlane@f1fan.example</a>
-        <span>Краснодар · паддок у экрана</span>
-      </div>
-      <p class="site-footer__copy">&copy; 2026 Pit Lane F1 Fan Club</p>
-    </footer>
-  </div>
-</body>
+
+      <main class="content">
+        <section class="profile-head" aria-labelledby="profile-name">
+          <img
+            class="profile-head__avatar"
+            src="http://172.30.82.99:3000/assets/avatar.svg"
+            alt="Фото профиля: Владислав, болельщик Ferrari"
+          />
+          <div class="profile-head__info">
+            <p class="profile-head__role">Болельщик · Ferrari</p>
+            <h1 class="profile-head__name" id="profile-name">Михаил</h1>
+            <p class="profile-head__meta">В клубе с 2026 года · 5 гонок на трибуне</p>
+          </div>
+        </section>
+
+        <section class="card" aria-labelledby="data-title">
+          <h2 class="card__title" id="data-title">Данные анкеты</h2>
+          <div class="info-list">
+            <div class="info-row">
+              <span class="info-row__key">Имя</span>
+              <span class="info-row__value">Михаил</span>
+            </div>
+            <div class="info-row">
+              <span class="info-row__key">Прозвище в паддоке</span>
+              <span class="info-row__value">HelloWorld</span>
+            </div>
+            <div class="info-row">
+              <span class="info-row__key">Email</span>
+              <span class="info-row__value">fan@example.com</span>
+            </div>
+            <div class="info-row">
+              <span class="info-row__key">Пароль</span>
+              <span class="info-row__value">••••••••</span>
+            </div>
+            <div class="info-row">
+              <span class="info-row__key">Возраст</span>
+              <span class="info-row__value">21</span>
+            </div>
+            <div class="info-row">
+              <span class="info-row__key">Счастливое число</span>
+              <span class="info-row__value">16</span>
+            </div>
+            <div class="info-row">
+              <span class="info-row__key">Дата рождения</span>
+              <span class="info-row__value">2004-05-16</span>
+            </div>
+            <div class="info-row">
+              <span class="info-row__key">Любимая команда</span>
+              <span class="info-row__value">Ferrari</span>
+            </div>
+            <div class="info-row">
+              <span class="info-row__key">Как часто смотрю</span>
+              <span class="info-row__value">Все гонки сезона</span>
+            </div>
+            <div class="info-row">
+              <span class="info-row__key">Рассылка</span>
+              <span class="info-row__value">Подписан</span>
+            </div>
+            <div class="info-row">
+              <span class="info-row__key">О себе</span>
+              <span class="info-row__value"
+                >Болею за Ferrari с детства, собираю модели болидов.</span
+              >
+            </div>
+          </div>
+        </section>
+
+        <section class="card" aria-labelledby="security-title">
+          <h2 class="card__title" id="security-title">Смена пароля</h2>
+          <form class="form" action="#" method="post">
+            <div class="field">
+              <label class="field__label" for="current-password">Введите текущий пароль</label>
+              <input
+                type="password"
+                id="current-password"
+                name="current-password"
+                placeholder="Текущий пароль"
+                required
+              />
+            </div>
+            <div class="field">
+              <label class="field__label" for="new-password">Введите новый пароль</label>
+              <input
+                type="password"
+                id="new-password"
+                name="new-password"
+                minlength="6"
+                placeholder="Минимум 6 символов"
+                required
+              />
+            </div>
+            <div class="field">
+              <label class="field__label" for="repeat-password">Повторите новый пароль</label>
+              <input
+                type="password"
+                id="repeat-password"
+                name="repeat-password"
+                minlength="6"
+                placeholder="Ещё раз новый пароль"
+                required
+              />
+            </div>
+            <div class="field__hint">После смены пароля потребуется войти заново.</div>
+            <button class="btn btn--primary btn--block" type="submit">Обновить пароль</button>
+          </form>
+        </section>
+      </main>
+
+      <footer class="site-footer">
+        <div class="site-footer__top">
+          <img
+            class="site-footer__logo"
+            src="http://172.30.82.99:3000/assets/logo.svg"
+            alt="Логотип Pit Lane F1 Fan Club"
+          />
+        </div>
+        <nav class="site-footer__nav" aria-label="Навигация в подвале">
+          <a href="/">Главная</a>
+          <a href="/public/profile">Профиль</a>
+        </nav>
+        <div class="site-footer__contacts">
+          <span>Связь с клубом:</span>
+          <a href="mailto:pitlane@f1fan.example">pitlane@f1fan.example</a>
+          <span>Краснодар · паддок у экрана</span>
+        </div>
+        <p class="site-footer__copy">&copy; 2026 Pit Lane F1 Fan Club</p>
+      </footer>
+    </div>
+  </body>
 </html>

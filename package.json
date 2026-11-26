@@ -2,17 +2,23 @@
   "scripts": {
     "build": "esbuild ./src/index.tsx --bundle --minify --jsx=automatic --outfile=public/script.js",
     "dev": "esbuild ./src/index.tsx --bundle --watch --jsx=automatic --servedir=. --outfile=public/script.js",
-    "typecheck": "tsc --noEmit"
-  },
-  "devDependencies": {
-    "@types/react": "^19.3.2",
-    "@types/react-dom": "^19.3.0",
-    "esbuild": "0.28.2",
-    "typescript": "^7.0.2"
+    "typecheck": "tsc --noEmit",
+    "lint": "oxlint",
+    "lint:fix": "oxlint --fix",
+    "fmt": "oxfmt",
+    "fmt:check": "oxfmt --check"
   },
   "dependencies": {
     "react": "^19.3.1",
     "react-dom": "^19.3.1",
     "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "@types/react": "^19.3.2",
+    "@types/react-dom": "^19.3.0",
+    "esbuild": "0.28.2",
+    "oxfmt": "^0.80.0",
+    "oxlint": "^1.90.0",
+    "typescript": "^7.0.2"
   }
 }
